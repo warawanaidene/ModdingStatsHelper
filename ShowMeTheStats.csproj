@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>net471</TargetFramework>
     <AssemblyName>Wara-ModdingStatsHelper</AssemblyName>
   </PropertyGroup>
 
@@ -10,11 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="Aki.Common">
-      <HintPath>dependencies\Aki.Common.dll</HintPath>
+    <Reference Include="spt-common">
+      <HintPath>dependencies\spt-common.dll</HintPath>
     </Reference>
-    <Reference Include="Aki.Reflection">
-      <HintPath>dependencies\Aki.Reflection.dll</HintPath>
+    <Reference Include="spt-reflection">
+      <HintPath>dependencies\spt-reflection.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>dependencies\Assembly-CSharp.dll</HintPath>

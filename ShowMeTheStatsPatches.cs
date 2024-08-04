@@ -1,4 +1,4 @@
-﻿using Aki.Reflection.Patching;
+﻿using SPT.Reflection.Patching;
 using EFT.InventoryLogic;
 using System.Reflection;
 using EFT.UI;
@@ -9,6 +9,7 @@ using EFT.UI.DragAndDrop;
 using System;
 using System.Linq;
 using EFT.UI.WeaponModding;
+using UnityEngine;
 
 namespace ShowMeTheStats
 {
@@ -17,7 +18,7 @@ namespace ShowMeTheStats
         // we set the item we are hovering in the globals
         protected override MethodBase GetTargetMethod()
         {
-            return typeof(GridItemView).GetMethod("ShowTooltip", BindingFlags.Instance | BindingFlags.NonPublic);
+            return typeof(GridItemView).GetMethod("ShowTooltip", BindingFlags.Instance | BindingFlags.Public);
         }
 
         [PatchPrefix]
@@ -37,7 +38,7 @@ namespace ShowMeTheStats
 
         protected override MethodBase GetTargetMethod()
         {
-            return typeof(SimpleTooltip).GetMethod("Show", BindingFlags.Instance | BindingFlags.Public);
+            return typeof(SimpleTooltip).GetMethod("Show", BindingFlags.Instance | BindingFlags.Public, null, new Type[] { typeof(string), typeof(Vector2), typeof(float), typeof(float), typeof(bool) }, null);
         }
 
         [PatchPrefix]
@@ -205,7 +206,7 @@ namespace ShowMeTheStats
     {
         protected override MethodBase GetTargetMethod()
         {
-            return typeof(EditBuildScreen).GetMethod("WeaponUpdate", BindingFlags.Instance | BindingFlags.NonPublic);
+            return typeof(EditBuildScreen).GetMethod("WeaponUpdate", BindingFlags.Instance | BindingFlags.Public);
         }
 
         [PatchPrefix]
